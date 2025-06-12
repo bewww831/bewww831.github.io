@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Hey Julie</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ultra&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg sticky-top">
+      <div class="container">
+        <a class="navbar-brand" href="home.html"
+          ><img src="./image/julie.JPG" class="julie"
+        /></a>
+        <marquee class="happy">
+            This is dedicated to you na, Juju. I love you
+        </marquee>
+      </div>
+    </nav>
+
+    <div class="container" id="head">
+        <div class="col-12" id="music">
+          <button id="playbackBtn" class="playback-btn" onclick="togglePlayback()">
+            ▶
+          </button>
+          <audio id="myAudio">
+            <source src="./song/just.mp3" type="audio/mpeg" />
+          </audio>
+        </div>
+      <h1>I love you <3</h1>
+        <div class="col-12" id="letter">
+          <p>To my dearest Julie,</p>
+          <p>
+            Hey baby! It's been nearly 2 weeks since we've been apart, 
+            and I'm missing you desperately. Every single day, my thoughts are 
+            filled with the sweet thoughts of you coming to Singapore and meeting me.
+            So, my love, I poured my heart into creating this little website, 
+            a tender countdown to the moment our paths cross again.
+          </p>
+          <p>
+            I know the distance can feel daunting at times, 
+            but please know that every mile between us only strengthens my love for you.
+            This website isn't just a collection of code; it's a piece of my heart, 
+            designed to remind us both that our reunion isn't just a hope, but a beautiful, 
+            soon-to-be reality. Each passing day on this countdown is a step closer to holding you again.
+          </p>
+          <p>
+            I truly hope this little website brings a smile to your face and helps 
+            ease the distance until we're together. Consider it a small token of my immense 
+            love for you, a digital present crafted with all my heart. May it serve as a sweet 
+            reminder of my constant thoughts of you and the joy awaiting us very soon.
+          </p>
+          <p>
+            Here's to us, Baby. To all the memories we've made and the ones yet
+            to come. I can't wait to see what the future holds for us.
+          </p>
+          <p>I love you to the Moon, Jupiter, Neptune and back!</p>
+          <p>yours forever,</p>
+          <p>Bewwy</p>
+        </div>
+
+        <div class="col-12" id="countdown-section">
+          <h2>Time until we're reunited!</h2>
+          <div id="countdown-display">
+              <div class="time-block" id="days-block">
+                  <div class="digit-container">
+                      <div class="digit-top-static">00</div>
+                      <div class="digit-bottom-static">00</div>
+                      <div class="flipper" data-old="00" data-new="00">
+                          <div class="flipper-front">00</div>
+                          <div class="flipper-back">00</div>
+                      </div>
+                  </div>
+                  <span class="time-label">DAYS</span>
+              </div>
+
+              <div class="time-block" id="hours-block">
+                  <div class="digit-container">
+                      <div class="digit-top-static">00</div>
+                      <div class="digit-bottom-static">00</div>
+                      <div class="flipper" data-old="00" data-new="00">
+                          <div class="flipper-front">00</div>
+                          <div class="flipper-back">00</div>
+                      </div>
+                  </div>
+                  <span class="time-label">HOURS</span>
+              </div>
+
+              <div class="time-block" id="minutes-block">
+                  <div class="digit-container">
+                      <div class="digit-top-static">00</div>
+                      <div class="digit-bottom-static">00</div>
+                      <div class="flipper" data-old="00" data-new="00">
+                          <div class="flipper-front">00</div>
+                          <div class="flipper-back">00</div>
+                      </div>
+                  </div>
+                  <span class="time-label">MINUTES</span>
+              </div>
+
+              <div class="time-block" id="seconds-block">
+                  <div class="digit-container">
+                      <div class="digit-top-static">00</div>
+                      <div class="digit-bottom-static">00</div>
+                      <div class="flipper" data-old="00" data-new="00">
+                          <div class="flipper-front">00</div>
+                          <div class="flipper-back">00</div>
+                      </div>
+                  </div>
+                  <span class="time-label">SECONDS</span>
+              </div>
+          </div>
+        </div>
+
+        <br>
+
+      </div>
+    </div>
+
+  </body>
+</html>
+
+<script>
+  // --- Music Player Script ---
+  let audio = document.getElementById("myAudio");
+  let playbackBtn = document.getElementById("playbackBtn");
+
+  let playing = false;
+
+  function togglePlayback() {
+    if (audio.paused) {
+      audio.play();
+      playing = true;
+    } else {
+      audio.pause();
+      playing = false;
+    }
+    updateButton();
+  }
+
+  function updateButton() {
+    if (playing) {
+      playbackBtn.innerHTML = "❚❚"; // Change button icon to pause
+      playbackBtn.classList.add("playing"); // Add playing class for styling
+    } else {
+      playbackBtn.innerHTML = "▶"; // Change button icon to play
+      playbackBtn.classList.remove("playing"); // Remove playing class
+    }
+  }
+
+  // --- Flipping Countdown Script ---
+
+  // !!! IMPORTANT: Set your target date and time here !!!
+  // Format: "Month Day, Year HH:MM:SS GMT+0800" for Singapore time
+  // Example: If you're meeting on July 21, 2025, at 12:00:00 PM (12:00:00) in Singapore
+  // Current time is Thursday, June 12, 2025 at 1:13:34 PM +08.
+  const targetDate = new Date("July 21, 2025 12:00:00 GMT+0800"); 
+
+  // Get references to the countdown elements
+  const daysBlock = document.getElementById("days-block");
+  const hoursBlock = document.getElementById("hours-block");
+  const minutesBlock = document.getElementById("minutes-block");
+  const secondsBlock = document.getElementById("seconds-block");
+
+  // Helper function to format numbers with leading zero
+  function formatDigit(num) {
+    return num < 10 ? "0" + num : num;
+  }
+
+  // Function to perform the flip animation for a single digit block
+  function flipDigit(blockElement, newValue) {
+    const flipper = blockElement.querySelector(".flipper");
+    const topStatic = blockElement.querySelector(".digit-top-static");
+    const bottomStatic = blockElement.querySelector(".digit-bottom-static");
+    const flipperFront = blockElement.querySelector(".flipper-front");
+    const flipperBack = blockElement.querySelector(".flipper-back");
+
+    const oldValue = flipper.dataset.old;
+
+    if (newValue === oldValue) {
+      return; // No change, no flip needed
+    }
+
+    // Set the old value to the front of the flipper and data-old
+    flipperFront.setAttribute('data-value', oldValue);
+    flipper.dataset.old = newValue; // Update data-old immediately
+
+    // Set the new value to the back of the flipper and data-new
+    flipperBack.setAttribute('data-value', newValue);
+    flipper.dataset.new = newValue;
+
+    // Trigger the flip animation
+    flipper.classList.add("flipping");
+
+    // After the animation completes, update the static parts and reset flipper
+    setTimeout(() => {
+      topStatic.textContent = newValue;
+      bottomStatic.textContent = newValue;
+      flipper.classList.remove("flipping");
+      flipperFront.setAttribute('data-value', newValue); // Reset front for next flip
+      flipperBack.setAttribute('data-value', newValue); // Reset back for next flip
+    }, 600); // Must match CSS transition duration
+  }
+
+
+  // Main countdown update function
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+
+    // Calculate time units
+    const days = Math.max(0, Math.floor(distance / (1000 * 60 * 60 * 24)));
+    const hours = Math.max(0, Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
+    const minutes = Math.max(0, Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)));
+    const seconds = Math.max(0, Math.floor((distance % (1000 * 60)) / 1000));
+
+    // Format for two digits
+    const formattedDays = formatDigit(days);
+    const formattedHours = formatDigit(hours);
+    const formattedMinutes = formatDigit(minutes);
+    const formattedSeconds = formatDigit(seconds);
+
+    // Update each flipping digit
+    flipDigit(daysBlock, formattedDays);
+    flipDigit(hoursBlock, formattedHours);
+    flipDigit(minutesBlock, formattedMinutes);
+    flipDigit(secondsBlock, formattedSeconds);
+
+    // Handle countdown end
+    if (distance < 0) {
+      clearInterval(countdownInterval);
+      // Update all static digits to "00" and label to "TOGETHER!"
+      daysBlock.querySelector(".digit-top-static").textContent = "00";
+      daysBlock.querySelector(".digit-bottom-static").textContent = "00";
+      daysBlock.querySelector(".time-label").textContent = "WE ARE";
+
+      hoursBlock.querySelector(".digit-top-static").textContent = "00";
+      hoursBlock.querySelector(".digit-bottom-static").textContent = "00";
+      hoursBlock.querySelector(".time-label").textContent = "NOW!";
+
+      minutesBlock.querySelector(".digit-top-static").textContent = ""; // Clear for final message
+      minutesBlock.querySelector(".digit-bottom-static").textContent = ""; // Clear for final message
+      minutesBlock.querySelector(".time-label").textContent = ""; // No label
+
+      secondsBlock.querySelector(".digit-top-static").textContent = ""; // Clear for final message
+      secondsBlock.querySelector(".digit-bottom-static").textContent = ""; // Clear for final message
+      secondsBlock.querySelector(".time-label").textContent = "❤️"; // Heart icon
+      
+      // Optionally hide the digit containers for the final message to be centered more easily
+      // daysBlock.querySelector(".digit-container").style.display = 'none';
+      // hoursBlock.querySelector(".digit-container").style.display = 'none';
+      // minutesBlock.querySelector(".digit-container").style.display = 'none';
+      // secondsBlock.querySelector(".digit-container").style.display = 'none';
+    }
+  }
+
+  // Update the countdown every 1 second
+  const countdownInterval = setInterval(updateCountdown, 1000);
+
+  // Initial call to display countdown immediately
+  updateCountdown();
+</script>
